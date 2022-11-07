@@ -1,0 +1,125 @@
+[
+    {
+        "id": "f14fccd129f94bd0",
+        "type": "tab",
+        "label": "Flow 5",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ffe1e28f6f0aa9c2",
+        "type": "e-mail in",
+        "z": "f14fccd129f94bd0",
+        "name": "Common Email",
+        "protocol": "IMAP",
+        "server": "imap.gmail.com",
+        "useSSL": true,
+        "autotls": "never",
+        "port": "993",
+        "box": "INBOX",
+        "disposition": "Read",
+        "criteria": "UNSEEN",
+        "repeat": "20",
+        "fetch": "auto",
+        "inputs": 0,
+        "x": 340,
+        "y": 260,
+        "wires": [
+            [
+                "c383e2f691f15050"
+            ]
+        ]
+    },
+    {
+        "id": "c383e2f691f15050",
+        "type": "debug",
+        "z": "f14fccd129f94bd0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "bbb291642db081a1",
+        "type": "inject",
+        "z": "f14fccd129f94bd0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Problem 1 - Assignment D",
+        "payload": "\"Adarei\"",
+        "payloadType": "str",
+        "x": 400,
+        "y": 360,
+        "wires": [
+            [
+                "c383e2f691f15050",
+                "803f8e5acd423bfa",
+                "8d914528760174cc",
+                "cf7e64d8dc8d38b7"
+            ]
+        ]
+    },
+    {
+        "id": "8d914528760174cc",
+        "type": "e-mail",
+        "z": "f14fccd129f94bd0",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": false,
+        "name": "silvanisithamaneesha@gmail.com",
+        "dname": "",
+        "x": 800,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "803f8e5acd423bfa",
+        "type": "e-mail",
+        "z": "f14fccd129f94bd0",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": false,
+        "name": "dilansenuruk@gmail.com",
+        "dname": "",
+        "x": 770,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "cf7e64d8dc8d38b7",
+        "type": "e-mail",
+        "z": "f14fccd129f94bd0",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": false,
+        "name": "pushpakumarsaravanan20@gmail.com",
+        "dname": "",
+        "x": 820,
+        "y": 480,
+        "wires": []
+    }
+]

@@ -1,0 +1,1197 @@
+[
+    {
+        "id": "365475bb0f4710b9",
+        "type": "tab",
+        "label": "Task 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1fc54a613fe596a9",
+        "type": "switch",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "/task_02n/temp1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02n/temp2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02n/humid1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02n/illum1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02n/illum2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02n/illum3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02n/windspeed1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02n/winddirection1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02n/bttrycap1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "/task_02n/pwgen1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 10,
+        "x": 490,
+        "y": 420,
+        "wires": [
+            [
+                "6d6a752ae9191948",
+                "c7171935e723e9d8"
+            ],
+            [
+                "0f9d0ba04ce3da0f",
+                "aabc16198f2cb719"
+            ],
+            [
+                "a3ac9b93cca5e55f",
+                "69b76d8e58c0e92a"
+            ],
+            [
+                "86515d9181eeb11c",
+                "a4bffce409279438"
+            ],
+            [
+                "43fcfe4b652f5f7c",
+                "9101c27876736c8f"
+            ],
+            [
+                "ed89f51661ac2473",
+                "c54c91236e7ee62e"
+            ],
+            [
+                "6d92de9f27182511",
+                "c61fe7d970aee38a"
+            ],
+            [
+                "59c8dfc385e5eb41"
+            ],
+            [
+                "5996fa58ae8f3c36",
+                "aa39d3f61783b4bb"
+            ],
+            [
+                "2cb0a8353f49f0dc",
+                "440dfba5e304b63d"
+            ]
+        ]
+    },
+    {
+        "id": "6d6a752ae9191948",
+        "type": "ui_chart",
+        "z": "365475bb0f4710b9",
+        "name": "Temperature Sensor 1",
+        "group": "add58e7a.c23c2",
+        "order": 8,
+        "width": "7",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "40",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 750,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0f9d0ba04ce3da0f",
+        "type": "ui_chart",
+        "z": "365475bb0f4710b9",
+        "name": "Temperature Sensor 2",
+        "group": "add58e7a.c23c2",
+        "order": 10,
+        "width": "7",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "40",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 750,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3ac9b93cca5e55f",
+        "type": "ui_chart",
+        "z": "365475bb0f4710b9",
+        "name": "Humidity Sensor",
+        "group": "add58e7a.c23c2",
+        "order": 12,
+        "width": "7",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 730,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5818394c4202a0f",
+        "type": "mqtt in",
+        "z": "365475bb0f4710b9",
+        "name": "Group 10",
+        "topic": "/task_02n/#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f88984c98ee56680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "659a4aa81cd03e19",
+                "df0ebeb8104609ce"
+            ]
+        ]
+    },
+    {
+        "id": "86515d9181eeb11c",
+        "type": "ui_gauge",
+        "z": "365475bb0f4710b9",
+        "name": "Illuminance Sensor 1",
+        "group": "2af80fa6921142da",
+        "order": 3,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Sensor 1",
+        "label": "M Lux",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "20",
+        "colors": [
+            "#00ffff",
+            "#0080ff",
+            "#000080"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 740,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a4bffce409279438",
+        "type": "ui_chart",
+        "z": "365475bb0f4710b9",
+        "name": "Illuminance Sensor 1",
+        "group": "2af80fa6921142da",
+        "order": 4,
+        "width": "7",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "20",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 740,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "43fcfe4b652f5f7c",
+        "type": "ui_gauge",
+        "z": "365475bb0f4710b9",
+        "name": "Illuminance Sensor 2",
+        "group": "2af80fa6921142da",
+        "order": 5,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Sensor 2",
+        "label": "M Lux",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "20",
+        "colors": [
+            "#00ffff",
+            "#0080ff",
+            "#000080"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 740,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "9101c27876736c8f",
+        "type": "ui_chart",
+        "z": "365475bb0f4710b9",
+        "name": "Illuminance Sensor 2",
+        "group": "2af80fa6921142da",
+        "order": 6,
+        "width": "7",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "20",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 740,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ed89f51661ac2473",
+        "type": "ui_gauge",
+        "z": "365475bb0f4710b9",
+        "name": "Illuminance Sensor 3",
+        "group": "2af80fa6921142da",
+        "order": 7,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Sensor 3",
+        "label": "M Lux",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "20",
+        "colors": [
+            "#00ffff",
+            "#0080ff",
+            "#000080"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 740,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "c54c91236e7ee62e",
+        "type": "ui_chart",
+        "z": "365475bb0f4710b9",
+        "name": "Illuminance Sensor 3",
+        "group": "2af80fa6921142da",
+        "order": 8,
+        "width": "7",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "20",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 740,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6d92de9f27182511",
+        "type": "ui_gauge",
+        "z": "365475bb0f4710b9",
+        "name": "Windspeed Sensor",
+        "group": "acdd3080a7099b72",
+        "order": 2,
+        "width": "6",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Wind Speed",
+        "label": "miles/h",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "15",
+        "colors": [
+            "#00ffff",
+            "#0080ff",
+            "#000080"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 730,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "c61fe7d970aee38a",
+        "type": "ui_chart",
+        "z": "365475bb0f4710b9",
+        "name": "Windspeed Sensor",
+        "group": "acdd3080a7099b72",
+        "order": 3,
+        "width": "6",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "15",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 730,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "59c8dfc385e5eb41",
+        "type": "ui_gauge",
+        "z": "365475bb0f4710b9",
+        "name": "Wind direction Sensor",
+        "group": "acdd3080a7099b72",
+        "order": 4,
+        "width": "6",
+        "height": "5",
+        "gtype": "compass",
+        "title": "Wind Direction",
+        "label": "degrees",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "360",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 740,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5996fa58ae8f3c36",
+        "type": "ui_gauge",
+        "z": "365475bb0f4710b9",
+        "name": "Battery Capacity",
+        "group": "f83bf00f22e53286",
+        "order": 4,
+        "width": "5",
+        "height": "4",
+        "gtype": "wave",
+        "title": "",
+        "label": "MAh",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "20",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 720,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "aa39d3f61783b4bb",
+        "type": "ui_chart",
+        "z": "365475bb0f4710b9",
+        "name": "Battery Capacity",
+        "group": "f83bf00f22e53286",
+        "order": 5,
+        "width": "7",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "20",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 720,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2cb0a8353f49f0dc",
+        "type": "ui_gauge",
+        "z": "365475bb0f4710b9",
+        "name": "Power Generation",
+        "group": "0766c1222c2d92ef",
+        "order": 4,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "",
+        "label": "kW",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "20",
+        "colors": [
+            "#00ffff",
+            "#0080ff",
+            "#000080"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 730,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "440dfba5e304b63d",
+        "type": "ui_chart",
+        "z": "365475bb0f4710b9",
+        "name": "Power Generation",
+        "group": "0766c1222c2d92ef",
+        "order": 5,
+        "width": "7",
+        "height": "4",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "20",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 730,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "659a4aa81cd03e19",
+        "type": "function",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "func": "global.set(\"Sensor_Value\", msg.payload)\nglobal.set(\"Warning\", 1)\nif (msg.topic == \"/task_02n/temp1\" && Number(msg.payload) >= 30){\n    msg.payload = \"Temerature Reading of Sensor 1 is HIGH !!!\"}\nelse if (msg.topic == \"/task_02n/temp2\" && Number(msg.payload) >= 30){\n    msg.payload = \"Temerature Reading of Sensor 2 is HIGH !!!\"}\nelse if (msg.topic == \"/task_02n/illum1\" && Number(msg.payload) >= 15){\n    msg.payload = \"Illuminance Reading of Sensor 1 is HIGH !!!\"}\nelse if (msg.topic == \"/task_02n/illum2\" && Number(msg.payload) >= 15){\n    msg.payload = \"Illuminance Reading of Sensor 2 is HIGH !!!\"}\nelse if (msg.topic == \"/task_02n/illum3\" && Number(msg.payload) >= 15){\n    msg.payload = \"Illuminance Reading of Sensor 3 is HIGH !!!\"}\nelse if (msg.topic == \"/task_02n/illum1_warning\" && Number(msg.payload) == 1){\n    msg.payload = \"Illuminance Warning!!!\"}\nelse if (msg.topic == \"/task_02n/windspeed\" && Number(msg.payload) >= 10){\n    msg.payload = \"Windspeed is HIGH !!!\"}\nelse if (msg.topic == \"/task_02n/humid1\"){ \n    if  (Number(msg.payload) >= 80){\n        msg.payload = \"Humidity is HIGH !!!\"}\n    else if (Number(msg.payload) < 40){\n        msg.payload = \"Humidity is LOW !!!\"}\n    else{\n        global.set(\"Warning\", 0)}}\nelse if (msg.topic == \"/task_02n/bttrycap1\" && Number(msg.payload) < 2){\n    msg.payload = \"Battery Capacity is LOW !!!\"}\nelse if (msg.topic == \"/task_02n/pwgen1\" && Number(msg.payload) > 15){\n    msg.payload = \"Power Generation is HIGH !!!\"}\nelse{\n    global.set(\"Warning\",0)}\nglobal.set(\"Text\", msg.payload)\nglobal.set(\"Topic\", msg.topic)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 780,
+        "wires": [
+            [
+                "6cfcd4e51dc9f797",
+                "4ba03fd4f3bcd58b"
+            ]
+        ]
+    },
+    {
+        "id": "f9ceedf2a4923ad9",
+        "type": "ui_audio",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "group": "fe32edf6aa50e9d3",
+        "voice": "urn:moz-tts:sapi:Microsoft David Desktop - English (United States)?en-US",
+        "always": true,
+        "x": 720,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "7ca2e4891c33f1f9",
+        "type": "ui_toast",
+        "z": "365475bb0f4710b9",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Notification",
+        "name": "",
+        "x": 730,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a75bd115c2dbed37",
+        "type": "switch",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "property": "msg_error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 840,
+        "wires": [
+            [
+                "f9ceedf2a4923ad9"
+            ]
+        ]
+    },
+    {
+        "id": "df0ebeb8104609ce",
+        "type": "function",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "func": "msg.payload = Math.round(Number(msg.payload)*10000)/10000\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 420,
+        "wires": [
+            [
+                "1fc54a613fe596a9"
+            ]
+        ]
+    },
+    {
+        "id": "dd976205598e8bc8",
+        "type": "ui_widget_thermometer",
+        "z": "365475bb0f4710b9",
+        "group": "add58e7a.c23c2",
+        "order": 7,
+        "width": "5",
+        "height": "4",
+        "name": "",
+        "title": "Temperature Sensor 1",
+        "colorTop": "#ec4137",
+        "colorMiddle": "#8bc34a",
+        "colorBottom": "#0f9ece",
+        "unit": "°C",
+        "scale": "small",
+        "minTemp": 0,
+        "maxTemp": "50",
+        "x": 850,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e2a8469792ee0aa6",
+        "type": "ui_widget_thermometer",
+        "z": "365475bb0f4710b9",
+        "group": "add58e7a.c23c2",
+        "order": 9,
+        "width": "5",
+        "height": "4",
+        "name": "",
+        "title": "Temperature Sensor 2",
+        "colorTop": "#ec4137",
+        "colorMiddle": "#8bc34a",
+        "colorBottom": "#0f9ece",
+        "unit": "°C",
+        "scale": "small",
+        "minTemp": 0,
+        "maxTemp": "50",
+        "x": 850,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c7171935e723e9d8",
+        "type": "function",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "func": "msg.payload = Math.round(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 60,
+        "wires": [
+            [
+                "dd976205598e8bc8"
+            ]
+        ]
+    },
+    {
+        "id": "aabc16198f2cb719",
+        "type": "function",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "func": "msg.payload = Math.round(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 140,
+        "wires": [
+            [
+                "e2a8469792ee0aa6"
+            ]
+        ]
+    },
+    {
+        "id": "69b76d8e58c0e92a",
+        "type": "ui_gauge",
+        "z": "365475bb0f4710b9",
+        "name": "Humidity Sensor",
+        "group": "add58e7a.c23c2",
+        "order": 11,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00ffff",
+            "#0080ff",
+            "#000080"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 730,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "bc5df95e777fed34",
+        "type": "ui_switch",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "label": "Audio Alerts",
+        "tooltip": "",
+        "group": "fe32edf6aa50e9d3",
+        "order": 12,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 90,
+        "y": 840,
+        "wires": [
+            [
+                "de7c8d7b527cf976"
+            ]
+        ]
+    },
+    {
+        "id": "de7c8d7b527cf976",
+        "type": "function",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "func": "if (msg.payload == true){\n    global.set(\"Audio_Alerts\", true)\n}\nelse{\n    global.set(\"Audio_Alerts\", false)\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 840,
+        "wires": [
+            [
+                "6cfcd4e51dc9f797"
+            ]
+        ]
+    },
+    {
+        "id": "6cfcd4e51dc9f797",
+        "type": "function",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "func": "var Text = global.get(\"Text\")\nvar Audio_Alerts = global.get(\"Audio_Alerts\")\nvar Warning = global.get(\"Warning\")\nif (Audio_Alerts == true && Warning != 0){\n    msg.payload = Text\n    msg.msg_error = 0\n}\nelse{\n    msg.msg_error = 1\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 840,
+        "wires": [
+            [
+                "a75bd115c2dbed37"
+            ]
+        ]
+    },
+    {
+        "id": "accd52fb77206f8d",
+        "type": "ui_switch",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "label": "Notifications",
+        "tooltip": "",
+        "group": "fe32edf6aa50e9d3",
+        "order": 12,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 90,
+        "y": 900,
+        "wires": [
+            [
+                "604481eb469de1d5"
+            ]
+        ]
+    },
+    {
+        "id": "604481eb469de1d5",
+        "type": "function",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "func": "if (msg.payload == true){\n    global.set(\"Notifications\", true)\n}\nelse{\n    global.set(\"Notifications\", false)\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 900,
+        "wires": [
+            [
+                "4ba03fd4f3bcd58b"
+            ]
+        ]
+    },
+    {
+        "id": "4ba03fd4f3bcd58b",
+        "type": "function",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "func": "var Text = global.get(\"Text\")\nvar Notifications = global.get(\"Notifications\")\nvar Warning = global.get(\"Warning\")\nif (Notifications == true && Warning != 0){\n    msg.payload = Text\n    msg.msg_error = 0\n}\nelse{\n    msg.msg_error = 1\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 900,
+        "wires": [
+            [
+                "bb489e7b6639a685"
+            ]
+        ]
+    },
+    {
+        "id": "bb489e7b6639a685",
+        "type": "switch",
+        "z": "365475bb0f4710b9",
+        "name": "",
+        "property": "msg_error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 900,
+        "wires": [
+            [
+                "7ca2e4891c33f1f9"
+            ]
+        ]
+    },
+    {
+        "id": "add58e7a.c23c2",
+        "type": "ui_group",
+        "name": "Temperature and Humidity",
+        "tab": "6bc77b34d42d6add",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f88984c98ee56680",
+        "type": "mqtt-broker",
+        "name": "5g-vue.projects.uom.lk:1883",
+        "broker": "5g-vue.projects.uom.lk",
+        "port": "1883",
+        "clientid": "group10",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "2af80fa6921142da",
+        "type": "ui_group",
+        "name": "Illuminance ",
+        "tab": "6bc77b34d42d6add",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "acdd3080a7099b72",
+        "type": "ui_group",
+        "name": "Wind",
+        "tab": "6bc77b34d42d6add",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f83bf00f22e53286",
+        "type": "ui_group",
+        "name": "Battery Capacity",
+        "tab": "6bc77b34d42d6add",
+        "order": 4,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0766c1222c2d92ef",
+        "type": "ui_group",
+        "name": "Power Generation",
+        "tab": "6bc77b34d42d6add",
+        "order": 5,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fe32edf6aa50e9d3",
+        "type": "ui_group",
+        "name": "Dashboard Settings",
+        "tab": "6bc77b34d42d6add",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6bc77b34d42d6add",
+        "type": "ui_tab",
+        "name": "Solar Power Plant",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

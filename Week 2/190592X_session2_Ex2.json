@@ -1,0 +1,366 @@
+[
+    {
+        "id": "b0411145665bbee2",
+        "type": "tab",
+        "label": "Lab 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "171702f5321b0c59",
+        "type": "ui_gauge",
+        "z": "b0411145665bbee2",
+        "name": "",
+        "group": "8b0b33ceaa0a0337",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "{{msg.payload.tempc}}",
+        "min": "15",
+        "max": "45",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 750,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "34c4d76b9bc79fc3",
+        "type": "ui_button",
+        "z": "b0411145665bbee2",
+        "name": "",
+        "group": "7a4b8eb840f47867",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset All",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": " ",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "171702f5321b0c59",
+                "f3dd09f1c64de2a2",
+                "dd0171c943d9f92e",
+                "b5ccbaf8b0af5a80",
+                "cacf203658843f86"
+            ]
+        ]
+    },
+    {
+        "id": "49c6e74bf4821ebe",
+        "type": "ui_chart",
+        "z": "b0411145665bbee2",
+        "name": "",
+        "group": "28ca2d90465a0cfd",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Temp _ Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "15",
+        "ymax": "45",
+        "removeOlder": "5",
+        "removeOlderPoints": "10",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 760,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ffd2102f652cfc8",
+        "type": "ui_button",
+        "z": "b0411145665bbee2",
+        "name": "",
+        "group": "28ca2d90465a0cfd",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset Chart",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "49c6e74bf4821ebe"
+            ]
+        ]
+    },
+    {
+        "id": "cacf203658843f86",
+        "type": "ui_dropdown",
+        "z": "b0411145665bbee2",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "c4781da13c994dd1",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "Galle",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "Colombo",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "Kandy",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "Jaffna",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "Matara",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "90a8661762367049"
+            ]
+        ]
+    },
+    {
+        "id": "90a8661762367049",
+        "type": "function",
+        "z": "b0411145665bbee2",
+        "name": "Set_Location",
+        "func": "msg.location = {};\nmsg.location.city=msg.payload;\nmsg.location.country=\"srilanka\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 40,
+        "wires": [
+            [
+                "33409c32c26c12fb"
+            ]
+        ]
+    },
+    {
+        "id": "33409c32c26c12fb",
+        "type": "openweathermap",
+        "z": "b0411145665bbee2",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "",
+        "country": "",
+        "language": "en",
+        "x": 490,
+        "y": 80,
+        "wires": [
+            [
+                "f3dd09f1c64de2a2",
+                "dd0171c943d9f92e",
+                "171702f5321b0c59",
+                "f6ffe14d7be53ea0",
+                "b5ccbaf8b0af5a80"
+            ]
+        ]
+    },
+    {
+        "id": "f3dd09f1c64de2a2",
+        "type": "ui_text",
+        "z": "b0411145665bbee2",
+        "group": "8b0b33ceaa0a0337",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Weather",
+        "format": "{{msg.payload.weather}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 740,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "dd0171c943d9f92e",
+        "type": "ui_text",
+        "z": "b0411145665bbee2",
+        "group": "8b0b33ceaa0a0337",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Humidity",
+        "format": "{{msg.payload.humidity}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 740,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f6ffe14d7be53ea0",
+        "type": "function",
+        "z": "b0411145665bbee2",
+        "name": "Chart Feeder",
+        "func": "let temp = parseInt(msg.payload.tempc);\nmsg.payload = temp ;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 340,
+        "wires": [
+            [
+                "49c6e74bf4821ebe"
+            ]
+        ]
+    },
+    {
+        "id": "b5ccbaf8b0af5a80",
+        "type": "ui_text",
+        "z": "b0411145665bbee2",
+        "group": "8b0b33ceaa0a0337",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperature",
+        "format": "{{msg.payload.tempc}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 750,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8b0b33ceaa0a0337",
+        "type": "ui_group",
+        "name": "Button",
+        "tab": "efd4a9358a3081ab",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7a4b8eb840f47867",
+        "type": "ui_group",
+        "name": "Reset",
+        "tab": "efd4a9358a3081ab",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "28ca2d90465a0cfd",
+        "type": "ui_group",
+        "name": "Chart",
+        "tab": "00c5909155d344ad",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c4781da13c994dd1",
+        "type": "ui_group",
+        "name": "Slider",
+        "tab": "efd4a9358a3081ab",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "efd4a9358a3081ab",
+        "type": "ui_tab",
+        "name": "Tab1",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "00c5909155d344ad",
+        "type": "ui_tab",
+        "name": "Tab2",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

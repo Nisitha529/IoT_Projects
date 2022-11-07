@@ -1,0 +1,309 @@
+[
+    {
+        "id": "960b1564b965e4bc",
+        "type": "tab",
+        "label": "IoT - Ex 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fc6205e978e02670",
+        "type": "inject",
+        "z": "960b1564b965e4bc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "25",
+        "payloadType": "num",
+        "x": 70,
+        "y": 160,
+        "wires": [
+            [
+                "cac8c7cd7d212847"
+            ]
+        ]
+    },
+    {
+        "id": "a2162fe3681aa8f1",
+        "type": "inject",
+        "z": "960b1564b965e4bc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "num",
+        "x": 70,
+        "y": 220,
+        "wires": [
+            [
+                "cac8c7cd7d212847"
+            ]
+        ]
+    },
+    {
+        "id": "edd604b6e24cf3f5",
+        "type": "inject",
+        "z": "960b1564b965e4bc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "9",
+        "payloadType": "num",
+        "x": 70,
+        "y": 280,
+        "wires": [
+            [
+                "cac8c7cd7d212847"
+            ]
+        ]
+    },
+    {
+        "id": "6e08bc967adee868",
+        "type": "inject",
+        "z": "960b1564b965e4bc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "13",
+        "payloadType": "num",
+        "x": 70,
+        "y": 340,
+        "wires": [
+            [
+                "cac8c7cd7d212847"
+            ]
+        ]
+    },
+    {
+        "id": "cac8c7cd7d212847",
+        "type": "rbe",
+        "z": "960b1564b965e4bc",
+        "name": "Value Changed?",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 260,
+        "y": 260,
+        "wires": [
+            [
+                "6cf1c6d0900d2bd1",
+                "049d9010ec2dc1c4"
+            ]
+        ]
+    },
+    {
+        "id": "6cf1c6d0900d2bd1",
+        "type": "debug",
+        "z": "960b1564b965e4bc",
+        "name": "value change notification",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "\"value changed\"",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "049d9010ec2dc1c4",
+        "type": "switch",
+        "z": "960b1564b965e4bc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "20",
+                "vt": "num"
+            },
+            {
+                "t": "jsonata_exp",
+                "v": "msg.payload%3 =0",
+                "vt": "jsonata"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "06f162e632b7aea2"
+            ],
+            [
+                "e5b07b6534cc56e6"
+            ],
+            [
+                "55157354e0eb024f"
+            ]
+        ]
+    },
+    {
+        "id": "06f162e632b7aea2",
+        "type": "debug",
+        "z": "960b1564b965e4bc",
+        "name": "Greater Than 20",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e5b07b6534cc56e6",
+        "type": "debug",
+        "z": "960b1564b965e4bc",
+        "name": "Divisible by 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "55157354e0eb024f",
+        "type": "change",
+        "z": "960b1564b965e4bc",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "received_number",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"name\": \" Silva G.B.N.M.\",\"index\":\"190592X\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 420,
+        "wires": [
+            [
+                "5079c99981d97d32",
+                "e57c3c6ebad8820c"
+            ]
+        ]
+    },
+    {
+        "id": "5079c99981d97d32",
+        "type": "debug",
+        "z": "960b1564b965e4bc",
+        "name": "restructure message",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "e57c3c6ebad8820c",
+        "type": "function",
+        "z": "960b1564b965e4bc",
+        "name": "",
+        "func": "let index_txt = msg.payload.index ;\nlet recieved_no = msg.received_number;\nlet answer = parseInt(index_txt,10) + recieved_no;\n\nreturn {payload:answer}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 520,
+        "wires": [
+            [
+                "4762cdb095410ba0"
+            ]
+        ]
+    },
+    {
+        "id": "4762cdb095410ba0",
+        "type": "debug",
+        "z": "960b1564b965e4bc",
+        "name": "final message",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 520,
+        "wires": []
+    }
+]

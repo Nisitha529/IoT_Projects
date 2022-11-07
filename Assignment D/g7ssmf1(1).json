@@ -1,0 +1,186 @@
+[
+    {
+        "id": "f14fccd129f94bd0",
+        "type": "tab",
+        "label": "Flow 5",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ffe1e28f6f0aa9c2",
+        "type": "e-mail in",
+        "z": "f14fccd129f94bd0",
+        "name": "Common Email",
+        "protocol": "IMAP",
+        "server": "imap.gmail.com",
+        "useSSL": true,
+        "autotls": "never",
+        "port": "993",
+        "box": "INBOX",
+        "disposition": "Read",
+        "criteria": "UNSEEN",
+        "repeat": "15",
+        "fetch": "auto",
+        "inputs": 0,
+        "x": 300,
+        "y": 260,
+        "wires": [
+            [
+                "ed50ad7678d532da",
+                "8bbb959246072b6f"
+            ]
+        ]
+    },
+    {
+        "id": "ed50ad7678d532da",
+        "type": "function",
+        "z": "f14fccd129f94bd0",
+        "name": "",
+        "func": "msg.location = {};\nmsg.location.city = msg.payload;\nmsg.location.country = \"Sri Lanka\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 200,
+        "wires": [
+            [
+                "d49d3e591bd33f10"
+            ]
+        ]
+    },
+    {
+        "id": "d49d3e591bd33f10",
+        "type": "openweathermap",
+        "z": "f14fccd129f94bd0",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "",
+        "country": "Sri Lanka",
+        "language": "en",
+        "credentials": {},
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "164a3e308ae58bec"
+            ]
+        ]
+    },
+    {
+        "id": "8bbb959246072b6f",
+        "type": "change",
+        "z": "f14fccd129f94bd0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "email",
+                "pt": "msg",
+                "to": "from",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "count",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 340,
+        "wires": [
+            [
+                "53dd044e1af90c93"
+            ]
+        ]
+    },
+    {
+        "id": "53dd044e1af90c93",
+        "type": "function",
+        "z": "f14fccd129f94bd0",
+        "name": "",
+        "func": "if (msg.count == 0){\n    val = 0;\n    e = 0\n    if (msg.email == \"dilansenuruk@gmail.com\"){\n        from = msg.email;\n        e = 1;\n    }\n    else if (msg.email == \"silvanisithamaneesha@gmail.com\"){\n        from = msg.email;\n        e = 1;\n    }\n    else if (msg.email == \"pushpakumarsaravanan20@gmail.com\"){\n        from = msg.email;\n        e = 1;\n    }\n    \n    if (e != 1){\n        val = 1;\n        msg.to = msg.email;\n        msg.payload = \"You are not in the Group\";\n        return msg;\n    }\n}\n\nif (msg.count == 1){\n    if (val == 0){\n        msg.to = from;\n        return msg;\n    }\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 340,
+        "wires": [
+            [
+                "6d6330e5719a5c57",
+                "28781cc5f1aaad7a"
+            ]
+        ]
+    },
+    {
+        "id": "164a3e308ae58bec",
+        "type": "change",
+        "z": "f14fccd129f94bd0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "count",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 260,
+        "wires": [
+            [
+                "53dd044e1af90c93"
+            ]
+        ]
+    },
+    {
+        "id": "6d6330e5719a5c57",
+        "type": "e-mail",
+        "z": "f14fccd129f94bd0",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": false,
+        "name": "",
+        "dname": "",
+        "x": 950,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "28781cc5f1aaad7a",
+        "type": "debug",
+        "z": "f14fccd129f94bd0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 420,
+        "wires": []
+    }
+]

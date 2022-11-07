@@ -1,0 +1,168 @@
+[
+    {
+        "id": "f547eabde98a176e",
+        "type": "tab",
+        "label": "IoT - Ex 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "17928a62d2a42b0e",
+        "type": "inject",
+        "z": "f547eabde98a176e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"latitude\": \"5.9781242\",     \"longtitude\": \"80.3525238\",     \"date\": \"2022-2-10\"}",
+        "payloadType": "json",
+        "x": 90,
+        "y": 100,
+        "wires": [
+            [
+                "ebe0f90a8e1a7b4a",
+                "1a7c0f4d3d2f177f"
+            ]
+        ]
+    },
+    {
+        "id": "1a7c0f4d3d2f177f",
+        "type": "function",
+        "z": "f547eabde98a176e",
+        "name": "Create URL",
+        "func": "let latitude = msg.payload.latitude ;\nlet lontitude = msg.payload.longitude;\nlet date = msg.payload.date;\n\nlet url_sunrise = \"https://api.sunrise-sunset.org/json?\"+\"lat=\"+latitude+\"&lng=\"+lontitude+\"&date=\"+date;\n\nmsg.url = url_sunrise ;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "cd0d4d92d3f192dc",
+                "41802844bde17d65"
+            ]
+        ]
+    },
+    {
+        "id": "ebe0f90a8e1a7b4a",
+        "type": "debug",
+        "z": "f547eabde98a176e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "cd0d4d92d3f192dc",
+        "type": "debug",
+        "z": "f547eabde98a176e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "41802844bde17d65",
+        "type": "http request",
+        "z": "f547eabde98a176e",
+        "name": "Call API",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 100,
+        "y": 320,
+        "wires": [
+            [
+                "8e6b9626ac4ee76e",
+                "16d9a1a8596ea837"
+            ]
+        ]
+    },
+    {
+        "id": "8e6b9626ac4ee76e",
+        "type": "function",
+        "z": "f547eabde98a176e",
+        "name": "Process API Response",
+        "func": "if (msg.payload[\"status\"] == \"OK\") {\n    delete msg.payload.status ;\n}\nconst text = msg.payload.results[\"day_length\"];\nconst str_array = text.split(\":\");\nlet hour = parseInt(str_array[0]);\nlet min = parseInt(str_array[1]);\nlet day_length_round = str_array[0];\nif (min >= 30){\n    hour += 1;\n    day_length_round = hour.toString(); \n    if (hour >23){\n        day_length_round = \"00\";\n    }\n}\nmsg.payload.results.day_length_rounded = day_length_round ;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "f875a5b32d92123b"
+            ]
+        ]
+    },
+    {
+        "id": "16d9a1a8596ea837",
+        "type": "debug",
+        "z": "f547eabde98a176e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 230,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "f875a5b32d92123b",
+        "type": "debug",
+        "z": "f547eabde98a176e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 320,
+        "wires": []
+    }
+]

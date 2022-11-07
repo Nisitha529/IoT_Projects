@@ -1,0 +1,124 @@
+[
+    {
+        "id": "3ec5cbf313dd25ba",
+        "type": "tab",
+        "label": "Flow 7",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a1228c27b916e040",
+        "type": "function",
+        "z": "3ec5cbf313dd25ba",
+        "name": "",
+        "func": "msg.location={};\nmsg.error={};\nlet body=msg.payload;\nlet varx = body.split(/\\r?\\n/);\nlet result=varx[0].split(\",\");\nconst valid_emails=[\"yasarahasiniariyarathna@gmail.com,thenuwaratharindu325@gmail.com\"];\nif (valid_emails.includes(msg.from)){\n    if (result.length==2){\n        msg.location.city=result[0];\n        msg.location.country=result[1];\n        msg.error=0;\n        \n    }\n    else{\n        msg.error=1;\n        msg.payload=\"yasara modi\";\n    }\n    \n}\nelse{\n    msg.payload=\"please use the valid email to get this service\";\n    msg.error=1;\n    \n}\nmsg.to={};\nmsg.to=msg.from;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 280,
+        "wires": [
+            [
+                "41e9cd73910ed669"
+            ]
+        ]
+    },
+    {
+        "id": "61f544b5c61f866e",
+        "type": "e-mail in",
+        "z": "3ec5cbf313dd25ba",
+        "name": "",
+        "protocol": "IMAP",
+        "server": "imap.gmail.com",
+        "useSSL": true,
+        "autotls": "never",
+        "port": "993",
+        "box": "INBOX",
+        "disposition": "Read",
+        "criteria": "UNSEEN",
+        "repeat": "5",
+        "fetch": "auto",
+        "inputs": 0,
+        "credentials": {
+            "userid": "",
+            "password": ""
+        },
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "a1228c27b916e040"
+            ]
+        ]
+    },
+    {
+        "id": "41e9cd73910ed669",
+        "type": "switch",
+        "z": "3ec5cbf313dd25ba",
+        "name": "",
+        "property": "error",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "200d852d577c07a8"
+            ],
+            [
+                "38d125982b9412ce"
+            ]
+        ]
+    },
+    {
+        "id": "200d852d577c07a8",
+        "type": "openweathermap",
+        "z": "3ec5cbf313dd25ba",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "",
+        "country": "",
+        "language": "en",
+        "x": 670,
+        "y": 220,
+        "wires": [
+            [
+                "38d125982b9412ce"
+            ]
+        ]
+    },
+    {
+        "id": "38d125982b9412ce",
+        "type": "e-mail",
+        "z": "3ec5cbf313dd25ba",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": false,
+        "name": "",
+        "dname": "",
+        "credentials": {},
+        "x": 830,
+        "y": 340,
+        "wires": []
+    }
+]
